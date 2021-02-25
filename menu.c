@@ -96,6 +96,16 @@ void parse_command(char* command, account_t* account) {
     } else if (strcmp(command, "pwd") == 0) {
       display_path();
 
+    } else if (strcmp(command, "code") == 0) {
+      open_code();
+
+    } else if (strcmp(command, "users") == 0) {
+      display_users(account);
+
+    } else if (strcmp(command, "head") == 0) {
+      argument = strtok(NULL, " ");
+      int number_line = atoi(strtok(NULL, " "));
+      print_lines(argument, number_line);
     } else if (strcmp(command, "exit") == 0) {
       free_memory(account);
       exit(0);

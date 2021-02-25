@@ -36,4 +36,14 @@ void display_content(char* filename);
 
 void free_memory(account_t* account);
 
+void encode_data(char *string);
+
+void decode_data(char *string); 
+
+void open_code();
+
+void display_users(account_t *account);
+
+void print_lines(char *filename, int number_lines);
+
 #endif

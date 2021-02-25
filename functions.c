@@ -13,7 +13,11 @@
 
 #define LENGTH 30
 
+#define PASSWORD_LENGTH 8
+
 #define TRUE 1
+
+#define LINE_LEN 300
 
 // function to authentificate an account
 void auth_function(account_t* account) {
@@ -57,7 +61,7 @@ void singup_function(account_t* account) {
     return;
   }
 
-  file_in = fopen("database.txt", "w");
+  file_in = fopen("database.txt", "at");
   if (file_in == NULL) {
     fprintf(stderr, "Error of opening file!\n");
     return;
@@ -79,9 +83,14 @@ void singup_function(account_t* account) {
 
     // if the user don't exist in system
   } else {
-    printf("Please enter a password for account: ");
     account->password = malloc(sizeof(account_t));
-    scanf("%s", account->password);
+    if (account->password == NULL) {
+      fprintf(stderr, "Error of malloc!\n");
+      return;
+    }
+
+    // get a password without display
+    account->password = getpass("Enter the password of account: ");
 
     FILE* file_out;
     file_out = fopen("database.txt", "at");
@@ -90,6 +99,7 @@ void singup_function(account_t* account) {
       return;
     }
 
+    encode_data(account->password);
     fprintf(file_out, "%s ", account->username);
     fprintf(file_out, "%s ", account->password);
 
@@ -104,11 +114,11 @@ void singup_function(account_t* account) {
     fprintf(file_out, "%s\n", account->path);
 
     fclose(file_out);
-
     create_path(account);
 
     printf("Your account was added with succes!\n");
     sleep(5);
+    login_function(account);
   }
 
   free(line);
@@ -166,14 +176,13 @@ void login_function(account_t* account) {
 
   scanf("%s", username);
 
-  printf("Enter the password of account: ");
   char* password = (char*)malloc(sizeof(char) * SIZE);
   if (username == NULL) {
     fprintf(stderr, "Error of malloc!\n");
     return;
   }
-
-  scanf("%s", password);
+  // get a password without display
+  password = getpass("Enter the password of account: ");
 
   account->username = (char*)malloc(SIZE * sizeof(char));
   if (account->username == NULL) {
@@ -198,6 +207,7 @@ void login_function(account_t* account) {
   while (!feof(file)) {
     fscanf(file, "%s", account->username);
     fscanf(file, "%s", account->password);
+    decode_data(account->password);
     fscanf(file, "%s", account->path);
 
     if (strcmp(username, account->username) == 0 &&
@@ -317,10 +327,101 @@ void display_content(char* filename) {
 
 // function to free memory allocated
 void free_memory(account_t* account) {
-
   free(account->username);
   free(account->password);
   free(account->path);
   free(account);
-  
+}
+
+// function to encode password
+void encode_data(char* string) {
+  for (int i = 0; i < strlen(string); ++i) {
+    string[i] += 3;
+  }
+}
+
+// function to decode password
+void decode_data(char* string) {
+  for (int i = 0; i < strlen(string); ++i) {
+    string[i] -= 3;
+  }
+}
+
+// function to open vs-code
+void open_code() {
+  system("code .");
+}
+
+// function to list all of system's users
+void display_users(account_t* account) {
+  FILE* database = fopen("../database.txt", "r");
+  if (database == NULL) {
+    fprintf(stderr, "Error of opening file!\n");
+    return;
+  }
+  account->username = (char*)malloc(SIZE * sizeof(char));
+  if (account->username == NULL) {
+    fprintf(stderr, "Error of malloc!\n");
+    return;
+  }
+
+  account->password = (char*)malloc(SIZE * sizeof(char));
+  if (account->username == NULL) {
+    fprintf(stderr, "Error of malloc!\n");
+    return;
+  }
+
+  account->path = (char*)malloc(SIZE * sizeof(char));
+  if (account->path == NULL) {
+    fprintf(stderr, "Error of malloc!\n");
+    return;
+  }
+
+  while (!feof(database)) {
+    fscanf(database, "%s", account->username);
+    fscanf(database, "%s", account->password);
+    fscanf(database, "%s", account->path);
+
+    printf("Username:%s -- Password:********** -- PATH:%s\n", account->username,
+           account->path);
+  }
+
+  fclose(database);
+}
+
+// count numbers of lines
+int count_lines(FILE* in) {
+  fseek(in, 0, SEEK_SET);
+
+  int cnt = 0;
+  char line[LINE_LEN];
+  while (fgets(line, LINE_LEN, in)) {
+    ++cnt;
+  }
+
+  return cnt;
+}
+
+void print_lines(char* filename, int number_lines) {
+  FILE* in = fopen(filename, "r");
+  int lines = count_lines(in);
+
+  char line[LINE_LEN];
+
+  fseek(in, 0, SEEK_SET);
+
+  if (number_lines < 0) {
+    number_lines = -number_lines;
+    for (int i = 0; i < lines - number_lines; ++i) {
+      fgets(line, LINE_LEN, in);
+    }
+  }
+
+  for (int i = 0; i < number_lines; ++i) {
+    if (fgets(line, LINE_LEN, in) == NULL) {
+      return;
+    }
+
+    printf("%s", line);
+  }
 }
