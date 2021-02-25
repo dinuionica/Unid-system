@@ -1,30 +1,8 @@
-# Unid-System [![Build Status](https://travis-ci.org/Subsurface-divelog/subsurface.svg?branch=master)](https://travis-ci.org/Subsurface-divelog/subsurface)
+# Unid-System [![Build Status]
 
-This is the README file for Subsurface 4.9.2
+This is the `README` file for new versio.
 
-Please check the `ReleaseNotes.txt` for details about new features and
-changes since Subsurface 4.9.1 (and earlier versions).
 
-Subsurface can be found at http://subsurface-divelog.org
-
-Our user forum is at http://subsurface-divelog.org/user-forum/
-
-Report bugs and issues at
-https://github.com/Subsurface-divelog/subsurface/issues
-
-License: GPLv2
-
-We frequently make new test versions of Subsurface available at
-http://subsurface-divelog.org/downloads/test/ and you always can get the
-latest builds (with some caveats about installability) at
-https://github.com/Subsurface-divelog/subsurface/releases/tag/continuous
-
-These tend to contain the latest bug fixes and features, but also
-occasionally the latest bugs and issues. Please understand when using them
-that these are primarily intended for testing.
-
-You can get the sources to the latest development version from the git
-repository:
 
 ```
 git clone https://github.com/Subsurface-divelog/subsurface.git
@@ -33,36 +11,6 @@ git clone https://github.com/Subsurface-divelog/subsurface.git
 You can also fork the repository and browse the sources at the same site,
 simply using https://github.com/Subsurface-divelog/subsurface
 
-If you want the latest release (instead of the bleeding edge
-development version) you can either get this via git or the release tar
-ball. After cloning run the following command:
-
-```
-git checkout v4.9.2  (or whatever the last release is)
-```
-
-or download a tarball from http://subsurface-divelog.org/downloads/Subsurface-4.9.2.tgz
-
-Detailed build instructions can be found in the INSTALL file.
-
-## System Requirements
-
-On desktop, the integrated Googlemaps feature of Subsurface requires a GPU
-driver that has support for at least OpenGL 2.1. If your driver does not
-support that, you may have to run Subsurface in software renderer mode.
-
-Subsurface will automatically attempt to detect this scenario, but in case
-in doesn't you may have to enable the software renderer manually with
-the following:
-1) Learn how to set persistent environment variables on your OS
-2) Set the environment variable 'QT_QUICK_BACKEND' with the value of 'software'
-
-## Basic Usage
-
-Install and start from the desktop, or you can run it locally from the
-build directory:
-
-On Linux:
 
 ```
 $ ./subsurface
@@ -97,31 +45,6 @@ http://subsurface-divelog.org/documentation/
 
 ## Contributing
 
-There is a mailing list for developers: subsurface@subsurface-divelog.org
-Go to http://lists.subsurface-divelog.org/cgi-bin/mailman/listinfo/subsurface
-to subscribe.
-
-If you want to contribute code, please open a pull request with signed-off
-commits at https://github.com/Subsurface-divelog/subsurface/pulls
-(alternatively, you can also send your patches as emails to the developer
-mailing list).
-
-Either way, if you don't sign off your patches, we will not accept them.
-This means adding a line that says "Signed-off-by: Name <email>" at the
-end of each commit, indicating that you wrote the code and have the right
-to pass it on as an open source patch.
-
-See: http://developercertificate.org/
-
-Also, please write good git commit messages.  A good commit message
-looks like this:
-
-```
-Header line: explain the commit in one line (use the imperative)
-
-Body of commit message is a few lines of text, explaining things
-in more detail, possibly giving some background about the issue
-being fixed, etc etc.
 
 The body of the commit message can be several paragraphs, and
 please do proper word-wrap and keep columns shorter than about
