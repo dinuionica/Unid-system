@@ -1,2 +1,0 @@
-ionica g ./ionica
-maria p ./maria
