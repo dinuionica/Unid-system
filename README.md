@@ -1,16 +1,15 @@
-# Unid-System [![Build Status]
+# Subsurface [![Build Status]
 
-This is the `README` file for new versio.
+This is the README file for Unid-System 1.0.0.
 
-
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 
 ```
 git clone https://github.com/Subsurface-divelog/subsurface.git
 ```
 
-You can also fork the repository and browse the sources at the same site,
-simply using https://github.com/Subsurface-divelog/subsurface
 
+On Linux:
 
 ```
 $ ./subsurface
@@ -21,30 +20,14 @@ On Mac:
 ```
 $ open Subsurface.app
 ```
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 
-Native builds on Windows are not really supported (the official Windows
-installers are both cross-built on Linux).
+```
+Header line: explain the commit in one line (use the imperative)
 
-You can give a data file as command line argument, or (once you have
-set this up in the Preferences) Subsurface picks a default file for
-you when started from the desktop or without an argument.
-
-If you have a dive computer supported by libdivecomputer, you can just
-select "Import from Divecomputer" from the "Import" menu, select which
-dive computer you have (and where it is connected if you need to), and
-hit "OK".
-
-The latest list of supported dive computers can be found in the file
-SupportedDivecomputers.txt.
-
-Much more detailed end user instructions can be found from inside
-Subsurface by selecting Help (typically F1). When building from source
-this is also available as Documentation/user-manual.html. The
-documentation for the latest release is also available on-line
-http://subsurface-divelog.org/documentation/
-
-## Contributing
-
+Body of commit message is a few lines of text, explaining things
+in more detail, possibly giving some background about the issue
+being fixed, etc etc.
 
 The body of the commit message can be several paragraphs, and
 please do proper word-wrap and keep columns shorter than about
@@ -60,24 +43,6 @@ Reported-by: whoever-reported-it
 Signed-off-by: Your Name <you@example.com>
 ```
 
-where that header line really should be meaningful, and really should be
-just one line.  That header line is what is shown by tools like gitk and
-shortlog, and should summarize the change in one readable line of text,
-independently of the longer explanation. Please use verbs in the
-imperative in the commit message, as in "Fix bug that...", "Add
-file/feature ...", or "Make Subsurface..."
+## A bit of history
 
-## A bit of Subsurface history
-
-In fall of 2011, when a forced lull in kernel development gave him an
-opportunity to start on a new endeavor, Linus Torvalds decided to tackle
-his frustration with the lack of decent divelog software on Linux.
-
-Subsurface is the result of the work of him and a team of developers since
-then. It now supports Linux, Windows and MacOS and allows data import from
-a large number of dive computers and several existing divelog programs. It
-provides advanced visualization of the key information provided by a
-modern dive computer and allows the user to track a wide variety of data
-about their diving.
-
-In fall of 2012 Dirk Hohndel took over as maintainer of Subsurface.
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
