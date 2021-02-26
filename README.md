@@ -10,7 +10,7 @@ The system also offers various tools needed by any user and a series of games.
 
 Download and Test:
 ```
-git clone https://github.com/Subsurface-divelog/subsurface.git
+https://github.com/dinuionica/Unid-system.git
 ```
 
 
@@ -25,27 +25,18 @@ On Mac:
 ```
 $ open unid_system.c
 ```
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 
+The command line interface is quite intuitive, the user will have to enter commands 
+that the shell will interpret and execute. The use of dynamic programming gives a plus
+to this project because the execution is very fast and the memory is dislocated at the end.
+
+A summary of a few commands:
 ```
-Header line: explain the commit in one line (use the imperative)
+ls [path] -> to list of file and directories of a path
+cd [path] -> to cd a path
+rmf [filename] -> to delete a file
+rmd [directoryname] -> to delete a directory
 
-Body of commit message is a few lines of text, explaining things
-in more detail, possibly giving some background about the issue
-being fixed, etc etc.
-
-The body of the commit message can be several paragraphs, and
-please do proper word-wrap and keep columns shorter than about
-74 characters or so. That way "git log" will show things
-nicely even when it's indented.
-
-Make sure you explain your solution and why you're doing what you're
-doing, as opposed to describing what you're doing. Reviewers and your
-future self can read the patch, but might not understand why a
-particular solution was implemented.
-
-Reported-by: whoever-reported-it
-Signed-off-by: Your Name <you@example.com>
 ```
 
 ## A bit of history
