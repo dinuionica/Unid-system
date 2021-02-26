@@ -35,10 +35,20 @@ A summary of a few commands:
 ls [path] -> to list of file and directories of a path
 cd [path] -> to cd a path
 rmf [filename] -> to delete a file
-rmd [directoryname] -> to delete a directory
+rmd [directory_name] -> to delete a directory
+mkf [filename] -> to make a file
+rnm [old_filenmae][new_filename] -> to rename a file
+users -> to display all users of system
+head [filename] [number_lines] -> to display the first number_lines of a filename
+tail [filename] [number_lines] -> to display the last number_lines of a filename
+code -> to open the code editor
+quiz-game -> to open a quiz game with capitals of countrys
+exit -> to stop the program
 
 ```
 
-## A bit of history
-
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+## Login/Singup
+For authentication a user must have an account with username and password.
+After this registration is done successfully for each user a path will be created
+with his name and a series of files and directories. Everything the user will execute
+will be executed in his own path. The user's words are kept in the system in a encrypted form.
