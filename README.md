@@ -53,5 +53,4 @@ After this registration is done successfully for each user a path will be create
 with his name and a series of files and directories. Everything the user will execute
 will be executed in his own path. The user's words are kept in the system in a encrypted form.
 
-
-
+https://user-images.githubusercontent.com/51510817/109278366-72f87100-77e6-11eb-9422-906c345d8cf1.jpg
