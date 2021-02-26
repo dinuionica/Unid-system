@@ -52,3 +52,6 @@ For authentication a user must have an account with username and password.
 After this registration is done successfully for each user a path will be created
 with his name and a series of files and directories. Everything the user will execute
 will be executed in his own path. The user's words are kept in the system in a encrypted form.
+
+
+
