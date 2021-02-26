@@ -2,8 +2,6 @@
 #include "./headers/functions.h"
 #include "./headers/menu.h"
 
-
-
 int main(void) {
   
   display_menu();
