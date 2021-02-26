@@ -44,7 +44,7 @@ tail [filename] [number_lines] -> to display the last number_lines of a filename
 code -> to open the code editor
 quiz-game -> to open a quiz game with capitals of countrys
 exit -> to stop the program
-
+and more
 ```
 
 ## Login/Singup
