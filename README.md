@@ -1,4 +1,4 @@
-#UNID-SYSTEM
+## UNID-SYSTEM
 
 This is the README file for Unid-System 1.0.1.
 
@@ -8,6 +8,7 @@ This system has its own shell for interpreting commands. Thus a user can work wi
 and directories on the command line.Thus, certain tasks can be automated and become much more efficient.
 The system also offers various tools needed by any user and a series of games.
 
+Download and Test:
 ```
 git clone https://github.com/Subsurface-divelog/subsurface.git
 ```
@@ -16,13 +17,13 @@ git clone https://github.com/Subsurface-divelog/subsurface.git
 On Linux:
 
 ```
-$ ./subsurface
+$ make && ./unid_system
 ```
 
 On Mac:
 
 ```
-$ open Subsurface.app
+$ open unid_system.c
 ```
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 
