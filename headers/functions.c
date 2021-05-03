@@ -47,7 +47,7 @@ void singup_function(account_t* account) {
   FILE* file_in;
   int user_exist = 0;
 
-  printf("Enter a username for account: ");
+  printf("Enter an username for account: ");
 
   account->username = (char*)malloc(SIZE * sizeof(char));
   if (account->username == NULL) {
