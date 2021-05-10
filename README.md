@@ -3,7 +3,7 @@
 This is the README file for Unid-System 1.0.1.
 
 
-Unid system represnt a mini operating system made in C language, using dynamic programming. 
+Unid system represent a mini operating system made in C language, using dynamic programming. 
 This system has its own shell for interpreting commands. Thus a user can work with files 
 and directories on the command line.Thus, certain tasks can be automated and become much more efficient.
 The system also offers various tools needed by any user and a series of games.
