@@ -26,6 +26,12 @@ On Mac:
 $ open unid_system.c
 ```
 
+On Windows:
+
+```
+$ gcc -o unid_system && ./unid_system
+```
+
 The command line interface is quite intuitive, the user will have to enter commands 
 that the shell will interpret and execute. The use of dynamic programming gives a plus
 to this project because the execution is very fast and the memory is dislocated at the end.
