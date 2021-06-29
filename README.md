@@ -56,8 +56,8 @@ will be executed in his own path. The user's words are kept in the system in a e
 ![alt text](https://user-images.githubusercontent.com/51510817/109278366-72f87100-77e6-11eb-9422-906c345d8cf1.jpg)
 
 # Copyright 2021 Dinu Ion-Irinel
-MIT License
-   Copyright 2021 Dinu Ion Irinel 
+MIT License<br>
+   Copyright 2021 Dinu Ion Irinel <br>
    Permission is hereby granted, free of charge, to any person obtaining a copy
    of this software and associated documentation files (the "Software"), to deal
    in the Software without restriction, including without limitation the rights 
