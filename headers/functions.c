@@ -12,16 +12,12 @@
 
 
 #define LENGTH 30
-
 #define PASSWORD_LENGTH 8
-
 #define TRUE 1
-
 #define LINE_LEN 300
-
 #define SIZE 100
 
-// function to authentificate an account
+// function to authentificate an account into the system
 void auth_function(account_t* account) {
   printf("Hello, do you have an account? yes/no -> ");
 
@@ -42,7 +38,7 @@ void auth_function(account_t* account) {
   free(option);
 }
 
-// add a new account into database
+// add a new account into database system
 void singup_function(account_t* account) {
   FILE* file_in;
   int user_exist = 0;
@@ -69,8 +65,7 @@ void singup_function(account_t* account) {
     return;
   }
 
-  //check if the user exist already in ty
-
+  // check if the user exist already in database system 
   while (fgets(line, sizeof(line), file_in)) {
     char *username = (char *) malloc(LENGTH * sizeof(char));
 
