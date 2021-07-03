@@ -408,7 +408,7 @@ int count_lines(FILE* in) {
   return cnt;
 }
 
-//head function to print first number_lines of a file
+// head function to print first number_lines of a file
 void head_print(char* filename, int number_lines) {
   FILE* in = fopen(filename, "r");
   int lines = count_lines(in);
@@ -426,7 +426,7 @@ void head_print(char* filename, int number_lines) {
   }
 }
 
-//tail function to print last number_lines of a file
+// tail function to print last number_lines of a file
 void tail_print(char* filename, int number_lines) {
   FILE* in = fopen(filename, "r");
   int lines = count_lines(in);
@@ -448,11 +448,8 @@ void tail_print(char* filename, int number_lines) {
   }
 }
 
-//function to rename a file
-
+// function to rename a file
 void rename_file(char *oldname, char *newname) {
-
-   
    int result = rename(oldname, newname);
 	
    if(result == 0) {
