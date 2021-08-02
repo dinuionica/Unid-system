@@ -1,4 +1,4 @@
-// Copyright 2021 Dinu Ion Irinel
+/* Copyright 2021 Dinu Ion Irinel */
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -11,23 +11,21 @@
 #include "quiz_game.h"
 
 #define SIZE 100
-
 #define LENGTH 30
-
 #define TRUE 1
 
+/* the function that display loop menu */
 void display_menu() {
   account_t* account = (account_t*)malloc(sizeof(account_t));
   if (account == NULL) {
     fprintf(stderr, "Error of malloc!\n");
     return;
   }
-
   auth_function(account);
 }
 
 void commands_menu(account_t* account) {
-  // ignore the last newline
+  /* ignore the last newline */
   char buf_newline[2];
   fgets(buf_newline, sizeof(buf_newline), stdin);
 
@@ -41,6 +39,7 @@ void commands_menu(account_t* account) {
   free(command);
 }
 
+/* the function that parse commands */
 void parse_command(char* command, account_t* account) {
   char* argument = (char*)malloc(LENGTH * sizeof(char));
   if (argument == NULL) {
@@ -48,18 +47,17 @@ void parse_command(char* command, account_t* account) {
     return;
   }
 
-  // display current path
+  /* display current path */
   char* path = (char*)malloc(SIZE * sizeof(char));
   if (path == NULL) {
     fprintf(stderr, "Error of malloc!\n");
     return;
   }
-
   while (getcwd(path, SIZE) &&
          printf("\033[1;31m%s@unid\033[0m:\033[0;34m%s\033[0m$",
                 account->username, path) &&
          fgets(command, LENGTH, stdin)) {
-    // delete last character
+    /* delete last character */
     if (command[strlen(command) - 1] == '\n') {
       command[strlen(command) - 1] = '\0';
     }
