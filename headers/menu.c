@@ -1,4 +1,5 @@
 /* Copyright 2021 Dinu Ion Irinel */
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
