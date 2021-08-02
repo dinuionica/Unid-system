@@ -1,4 +1,5 @@
-// Copyright 2021 Dinu Ion Irinel
+/* Copyright 2021 Dinu Ion Irinel */
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -17,17 +18,17 @@
 #define LINE_LEN 300
 #define SIZE 100
 
-// function to authentificate an account into the system
+/* the function that authentificate an account into the system */
 void auth_function(account_t* account) {
   printf("Hello, do you have an account? yes/no -> ");
-
+  /* memory allocation for option input */
   char* option = (char*)malloc(SIZE * sizeof(char));
   if (option == NULL) {
     fprintf(stderr, "Error of malloc!\n");
     return;
   }
   scanf("%s", option);
-
+  /* check if the user want to sing up or login with an account */
   if (strcmp(option, "yes") == 0) {
     login_function(account);
 
@@ -38,37 +39,34 @@ void auth_function(account_t* account) {
   free(option);
 }
 
-// add a new account into database system
+/* the function that add a new account into database system */
 void singup_function(account_t* account) {
+	
   FILE* file_in;
   int user_exist = 0;
-
   printf("Enter an username for account: ");
-
+	
+  /* take username input and read informations of the text file */
   account->username = (char*)malloc(SIZE * sizeof(char));
   if (account->username == NULL) {
     fprintf(stderr, "Error of malloc!\n");
     return;
   }
-
   scanf("%s", account->username);
-
   char* line = (char*)malloc(sizeof(char) * SIZE);
   if (line == NULL) {
     fprintf(stderr, "Error of malloc!\n");
     return;
   }
-
   file_in = fopen("./headers/database.txt", "r");
   if (file_in == NULL) {
     fprintf(stderr, "Error of opening file!\n");
     return;
   }
 
-  // check if the user exist already in database system 
+  /* check if the user exist already in database system */
   while (fgets(line, sizeof(line), file_in)) {
     char *username = (char *) malloc(LENGTH * sizeof(char));
-
     if (username == NULL) {
       fprintf(stderr,"Error of malloc!\n");
       return;
@@ -81,13 +79,13 @@ void singup_function(account_t* account) {
     }
   }
 
-  // if the user exist in system
+  /* if the user exist in system print a message */
   if (user_exist == 1) {
     printf("This account already exist in system!\n");
     sleep(3);
     singup_function(account);
 
-    // if the user don't exist in system
+   /* if the user don't exist in system */
   } else {
     account->password = malloc(sizeof(account_t));
     if (account->password == NULL) {
@@ -95,21 +93,20 @@ void singup_function(account_t* account) {
       return;
     }
 
-    // get a password without display
+    /* get a password without display it */
     account->password = getpass("Enter the password of account: ");
-
     FILE* file_out;
     file_out = fopen("./headers/database.txt", "at");
     if (file_out == NULL) {
       fprintf(stderr, "Error of opening file!\n");
       return;
     }
-
+    /* encode data */
     encode_data(account->password);
     fprintf(file_out, "%s ", account->username);
     fprintf(file_out, "%s ", account->password);
 
-    // create path
+    /* create a user path */
     account->path = (char*)malloc(SIZE * sizeof(char));
     if (account->path == NULL) {
       fprintf(stderr, "Error of malloc!\n");
@@ -118,7 +115,6 @@ void singup_function(account_t* account) {
     strcpy(account->path, "./");
     strcat(account->path, account->username);
     fprintf(file_out, "%s\n", account->path);
-
     fclose(file_out);
     create_path(account);
 
@@ -126,12 +122,11 @@ void singup_function(account_t* account) {
     sleep(5);
     login_function(account);
   }
-
   free(line);
   fclose(file_in);
 }
 
-// function to create path directories of account
+/*the function thar create path directories of account */
 void create_path(account_t* account) {
   account->path = (char*)malloc(SIZE * sizeof(char));
   if (account->path == NULL) {
@@ -143,30 +138,30 @@ void create_path(account_t* account) {
   strcat(account->path, account->username);
   mkdir(account->path, 0777);
 
-  // make home directory
+  /* make home directory */
   strcat(account->path, "/home");
   mkdir(account->path, 0777);
 
-  // make documents directory
+  /* make documents directory */
   strcpy(account->path, "./");
   strcat(account->path, account->username);
   strcat(account->path, "/documents");
   mkdir(account->path, 0777);
 
-  // make music directory
+  /* make music directory */
   strcpy(account->path, "./");
   strcat(account->path, account->username);
   strcat(account->path, "/music");
   mkdir(account->path, 0777);
 
-  // make pictures directory
+  /* make pictures directory */
   strcpy(account->path, "./");
   strcat(account->path, account->username);
   strcat(account->path, "/music");
   mkdir(account->path, 0777);
 }
 
-// function to login
+/* the function that login an user with an account */
 void login_function(account_t* account) {
   FILE* file = fopen("./headers/database.txt", "rt");
   if (file == NULL) {
@@ -179,7 +174,6 @@ void login_function(account_t* account) {
     fprintf(stderr, "Error of opening file!\n");
     return;
   }
-
   scanf("%s", username);
 
   char* password = (char*)malloc(sizeof(char) * SIZE);
@@ -187,28 +181,27 @@ void login_function(account_t* account) {
     fprintf(stderr, "Error of malloc!\n");
     return;
   }
-  // get a password without display
+  /* get a password without display it */
   password = getpass("Enter the password of account: ");
-
+  
+  /* memory allocation for attributes of an account */
   account->username = (char*)malloc(SIZE * sizeof(char));
   if (account->username == NULL) {
     fprintf(stderr, "Error of malloc!\n");
     return;
   }
-
   account->password = (char*)malloc(SIZE * sizeof(char));
   if (account->username == NULL) {
     fprintf(stderr, "Error of malloc!\n");
     return;
   }
-
   account->path = (char*)malloc(SIZE * sizeof(char));
   if (account->path == NULL) {
     fprintf(stderr, "Error of malloc!\n");
     return;
   }
 
-  // check if the user and password are correct
+  /* check if the user and password are correct */
   int correct_information = 0;
   while (!feof(file)) {
     fscanf(file, "%s", account->username);
@@ -235,10 +228,9 @@ void login_function(account_t* account) {
   sleep(5);
 }
 
-// function to make a file
+/* the function thar create a file */
 void make_file(char* filename) {
   FILE* file_out = fopen(filename, "w");
-
   if (file_out == NULL) {
     fprintf(stderr, "Error of opening file!\n");
     return;
@@ -247,13 +239,13 @@ void make_file(char* filename) {
   printf("%s was created with succes!\n", filename);
 }
 
-// function to make a directory
+/* the function that make a directory */
 void make_directory(char* filename) {
   mkdir(filename, 0777);
   printf("%s was created with succes!\n", filename);
 }
 
-// function to delete a file
+/* function to delete a file */
 void remove_file(char* filename) {
   if (remove(filename) == 0) {
     printf("%s was deleted with succes!\n", filename);
@@ -262,7 +254,7 @@ void remove_file(char* filename) {
   }
 }
 
-// function to delete a directory
+/* function to delete a directory */
 void remove_directory(char* filename) {
   if (rmdir(filename) == 0) {
     printf("%s was deleted with succes!\n", filename);
@@ -271,35 +263,32 @@ void remove_directory(char* filename) {
   }
 }
 
-// function to displat all file and directories
+/* function to displat all file and directories */
 void list_function(char* directory) {
   DIR* dp;
   struct dirent* dentry;
-
   if (!(dp = opendir(directory))) {
     fprintf(stderr, "Unable to display list of this directory!\n");
     return;
   }
-
   while (TRUE) {
     dentry = readdir(dp);
     if (dentry == NULL) {
       break;
     }
-
     printf("%s ", dentry->d_name);
   }
   printf("\n");
 }
 
-// function to change directory
+/*the  function that change current directory */
 void change_directory(char* filename) {
   if (chdir(filename) != 0) {
     fprintf(stderr, "Unable to change the directory!\n");
   }
 }
 
-// function to display the full currently path
+/* the function thar display the full currently path */
 void display_path() {
   char* path = (char*)malloc(SIZE * sizeof(char));
   if (path == NULL) {
@@ -307,14 +296,12 @@ void display_path() {
     return;
   }
   getcwd(path, SIZE);
-
   printf("%s\n", path);
 }
 
-// function to display all content of a file
+/* the function thar display all content of a file */
 void display_content(char* filename) {
   FILE* file_in = fopen(filename, "r");
-
   if (file_in == NULL) {
     fprintf(stderr, "Error of opening file!\n");
     return;
@@ -331,52 +318,52 @@ void display_content(char* filename) {
   printf("\n");
 }
 
-// function to free memory allocated
+/* the function that free memory allocated */
 void free_memory(account_t* account) {
+  /* free all allocated attributes */
   free(account->username);
   free(account->password);
   free(account->path);
   free(account);
 }
 
-// function to encode password
+/* tha function that simulate an encode password */
 void encode_data(char* string) {
   for (int i = 0; i < strlen(string); ++i) {
     string[i] += 3;
   }
 }
 
-// function to decode password
+/* the function that simulat a decode password */
 void decode_data(char* string) {
   for (int i = 0; i < strlen(string); ++i) {
     string[i] -= 3;
   }
 }
 
-// function to open vs-code
+/* the function that open vs-code */
 void open_code() {
   system("code .");
 }
 
-// function to list all of system's users
+/* function to list all of system's users */
 void display_users(account_t* account) {
   FILE* database = fopen("../headers/database.txt", "r");
   if (database == NULL) {
     fprintf(stderr, "Error of opening file!\n");
     return;
   }
+  /* memory allocation for attributes of an account */
   account->username = (char*)malloc(SIZE * sizeof(char));
   if (account->username == NULL) {
     fprintf(stderr, "Error of malloc!\n");
     return;
   }
-
   account->password = (char*)malloc(SIZE * sizeof(char));
   if (account->username == NULL) {
     fprintf(stderr, "Error of malloc!\n");
     return;
   }
-
   account->path = (char*)malloc(SIZE * sizeof(char));
   if (account->path == NULL) {
     fprintf(stderr, "Error of malloc!\n");
@@ -391,67 +378,54 @@ void display_users(account_t* account) {
     printf("Username:%s -- Password:********** -- PATH:%s\n", account->username,
            account->path);
   }
-
   fclose(database);
 }
 
-// count numbers of lines
+/* the function that count numbers of lines */
 int count_lines(FILE* in) {
   fseek(in, 0, SEEK_SET);
-
   int cnt = 0;
   char line[LINE_LEN];
   while (fgets(line, LINE_LEN, in)) {
     ++cnt;
   }
-
   return cnt;
 }
 
-// head function to print first number_lines of a file
+/* head function to print first number_lines of a file */
 void head_print(char* filename, int number_lines) {
   FILE* in = fopen(filename, "r");
   int lines = count_lines(in);
-
   char line[LINE_LEN];
-
   fseek(in, 0, SEEK_SET);
-
   for (int i = 0; i < number_lines; ++i) {
     if (fgets(line, LINE_LEN, in) == NULL) {
       return;
     }
-
     printf("%s", line);
   }
 }
 
-// tail function to print last number_lines of a file
+/* tail function to print last number_lines of a file */
 void tail_print(char* filename, int number_lines) {
   FILE* in = fopen(filename, "r");
   int lines = count_lines(in);
-
   char line[LINE_LEN];
-
   fseek(in, 0, SEEK_SET);
-
   for (int i = 0; i < lines - number_lines; ++i) {
       fgets(line, LINE_LEN, in);
     }
-
   for (int i = 0; i < number_lines; ++i) {
     if (fgets(line, LINE_LEN, in) == NULL) {
       return;
     }
-
     printf("%s", line);
   }
 }
 
-// function to rename a file
+/* the function that rename a file */
 void rename_file(char *oldname, char *newname) {
    int result = rename(oldname, newname);
-	
    if(result == 0) {
       printf("File renamed successfully");
    } else {
