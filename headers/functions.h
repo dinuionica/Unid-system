@@ -1,4 +1,4 @@
-// Copyright 2021 Dinu Ion Irinel
+/* Copyright 2021 Dinu Ion Irinel */
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
 
