@@ -51,4 +51,4 @@ void tail_print(char* filename, int number_lines);
 
 void rename_file(char *oldname, char *newname);
 
-#endif
+#endif // FUNCTIONS_H
