@@ -9,7 +9,6 @@
 #include <dirent.h>
 #include "functions.h"
 #include "menu.h"
-#include "quiz_game.h"
 
 #define SIZE 100
 #define LENGTH 30
@@ -117,10 +116,7 @@ void parse_command(char* command, account_t* account) {
       int number_line = atoi(strtok(NULL, " "));
       tail_print(argument, number_line);
       
-    } else if (strcmp(command, "quiz-game") == 0) {
-      quiz_game();
-
-    } else if (strcmp(command, "exit") == 0) {
+    }  else if (strcmp(command, "exit") == 0) {
       free_memory(account);
       exit(0);
 
