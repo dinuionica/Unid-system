@@ -9,8 +9,6 @@
 #include <dirent.h>
 #include "functions.h"
 #include "menu.h"
-#include "quiz_game.h"
-
 
 #define LENGTH 30
 #define PASSWORD_LENGTH 8
