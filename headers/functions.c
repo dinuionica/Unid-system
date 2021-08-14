@@ -26,7 +26,7 @@ void auth_function(account_t* account) {
     return;
   }
   scanf("%s", option);
-  /* check if the user want to sing up or login with an account */
+  /* check if the user wants to sing up or login with an account */
   if (strcmp(option, "yes") == 0) {
     login_function(account);
 
